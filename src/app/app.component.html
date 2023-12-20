@@ -1,0 +1,103 @@
+<header class="antialiased">
+    <!-- First Row -->
+    <nav class="bg-light-bar-1 border-gray-300 px-4 lg:px-6 py-2.5  dark:bg-dark-bar-1">
+        <div class="flex flex-row justify-center items-center">
+            <div class="flex justify-between items-center w-full">
+
+                <!-- Left part with logo and search bar -->
+                <div class="flex justify-start items-center">
+                    <a href="#" class="flex mr-6 gap-x-3 items-center">
+                        <ng-icon class="text-logo" size="22" name="octCheckCircleFill"></ng-icon>
+                        <span
+                            class="self-center text-3xl font-semibold whitespace-nowrap text-gray-950 dark:text-gray-300">Actionforge</span>
+                    </a>
+                </div>
+
+                <!-- Right part of the top navbar-->
+                <div class="flex justify-between gap-x-3 items-center lg:order-2">
+
+                    <!-- Toggle Theme -->
+                    <app-button (click)="onClickToggleTheme($event)" class="hidden sm:block" matTooltip="Switch Theme"
+                        [iconName]="getThemeIcon()"></app-button>
+
+                    <a href="https://discord.gg/DjVT6amcsf" target="_blank" rel="noopener noreferrer"
+                        class="hidden sm:block">
+                        <app-button matTooltip="Join Discord Community" iconName="simpleDiscord"></app-button>
+                    </a>
+
+                    <!-- GitHub Link -->
+                    <a href="https://www.github.com/actionforge" target="_blank" rel="noopener noreferrer">
+                        <app-button matTooltip="Visit GitHub" class="hidden sm:block"
+                            iconName="simpleGithub"></app-button>
+                    </a>
+
+                    <ng-container *ngIf="whoami; else signedOut">
+                        <!-- Profile photo -->
+                        <button type="button" id="userMenuDropdownButton" aria-expanded="false"
+                            data-dropdown-toggle="userMenuDropdown">
+                            <div
+                                class="relative inline-flex items-center justify-center w-8 h-8 overflow-hidden bg-orange-200 rounded-full dark:bg-gray-700">
+                                <span class="font-medium">U</span>
+                            </div>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-700"
+                            id="userMenuDropdown">
+                            <div class="py-3 px-4">
+                                <span
+                                    class="block text-sm font-semibold text-gray-900 dark:text-white">{{whoami.identity.traits.username.username}}</span>
+                                <span
+                                    class="block text-sm text-gray-500 truncate dark:text-gray-300">{{whoami.identity.traits.email}}</span>
+                            </div>
+                            <ul class="py-1 text-gray-500 dark:text-gray-300" aria-labelledby="dropdown">
+                                <li>
+                                    <a href="http://ec2-35-182-201-83.ca-central-1.compute.amazonaws.com:4433/self-service/logout"
+                                        class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Sign
+                                        out</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </ng-container>
+                    <ng-template #signedOut>
+                        <button type="button" (click)="onSignIn($event)" class="cid-button cid-blue-button">
+                            <span>Sign In</span>
+                        </button>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Second Row -->
+    <nav id="toggleMobileMenu" class="bg-light-bar-2 shadow-sm dark:bg-dark-bar-2">
+        <div *ngIf="whoami" class="px-0 lg:px-6">
+            <div class="flex items-center">
+                <ul class="flex flex-row mt-0 w-full font-medium text-gray-500 dark:text-gray-300">
+                    <li class="flex flex-row items-center justify-center">
+                        <a routerLink="repositories" class="py-3 px-4 hover:text-link"
+                            [class.text-link]="isCurrentPage('/repositories')">
+                            <span class="mr-1.5">Repositories</span>
+                        </a>
+                    </li>
+                    <li class="flex flex-row items-center justify-center">
+                        <a routerLink="docs" href="#" [class.text-link]="isCurrentPage('/docs')"
+                            class="block py-3 px-4 hover:text-primary-700 dark:hover:text-primary-500">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div *ngIf="!whoami && currentRoute === '/'" class="px-0 lg:px-6">
+            <div class="flex gap-x-2 items-center text-md text-gray-500 dark:text-gray-300 md:mb-0 py-3 px-4">
+                <ng-icon size="12" color="gray" name="octInfo"></ng-icon> Actionforge is not affiliated
+                with GitHub.
+            </div>
+        </div>
+    </nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<div class="z-100 fixed left-1/2 top-2 transform -translate-x-1/2">
+    <app-notification></app-notification>
+</div>

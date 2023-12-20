@@ -1,0 +1,9 @@
+<button [disabled]="disabled" type="button" [ngClass]="{
+      'flex justify-end items-center text-gray-500 rounded-lg dark:text-gray-300': true,
+      'opacity-50': disabled,
+      'p-0': !hasPadding,
+      'p-2.5': hasPadding,
+      'hover:text-gray-900 hover:bg-gray-100 hover:dark:text-white hover:dark:bg-gray-700': !disabled
+    }">
+  <ng-icon [color]="color" [name]="iconName"></ng-icon>
+</button>

@@ -1,0 +1,387 @@
+<div class="flex flex-col gap-y-24 cid-bg cid-bg">
+
+    <div class="cid-bg-gradient">
+
+        <section>
+            <div class="max-w-screen-xl px-4 pt-32 mx-auto text-center lg:pt-48 lg:px-12">
+                <h1
+                    class="flex flex-col md:flex-row items-center justify-center gap-x-2 mb-4 font-extrabold tracking-tight text-gray-900 text-4xl md:text-5xl lg:text-6xl dark:text-white">
+                    <span class="h-[2.5rem] md:h-[3.5rem] lg:h-[4rem]">GitHub Workflows</span>
+                    <span class="cid-gradient from-blue-300 to-blue-700 h-[2.5rem] md:h-[3.5rem] lg:h-[4rem]"
+                        #reimagined></span>
+                </h1>
+
+                <p
+                    class="mb-8 mx-auto text-gray-500 md:text-lg lg:text-xl px-8 lg:px-48 dark:text-gray-400 max-w-xl md:max-w-2xl lg:max-w-5xl">
+                    Introducing Action Graphs: a faster, easier way to visually create and execute workflows in minutes,
+                    not hours—no YAML required.
+                </p>
+
+                <!-- Call to actions-->
+                <div
+                    class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <div (click)="onClickScrollToSubscribeToNewsletter($event)"
+                        (keydown.enter)="onClickScrollToSubscribeToNewsletter($event)" tabindex="0"
+                        class="cid-button cid-blue-button">
+                        <ng-icon name="octCheckCircleFill"></ng-icon>
+                        <span>Join Waitlist</span>
+                    </div>
+                    <div (click)="onClickGitHub($event)" (keydown.enter)="onClickGitHub($event)" tabindex="0"
+                        class="cid-button">
+                        <ng-icon name="simpleGithub"></ng-icon>
+                        <span>Source on GitHub</span>
+                        <ng-icon name="octStarFill" size="12"></ng-icon>
+                    </div>
+                </div>
+
+                <!-- Screenshots -->
+                <div class="mx-0 md:mx-16 mt-16 md:mt-64">
+
+                    <div class="hidden md:flex flex-row w-full h-12 mb-4 font-mono">
+
+                        <span
+                            class="flex flex-row items-center justify-center gap-x-2 text-xl md:text-3xl dark:text-white w-1/2 whitespace-nowrap"
+                            [style.opacity.%]="leftSlider">
+                            <ng-icon class="text-red-500" size="18" name="octCircleSlash"></ng-icon> Without
+                            Actionforge
+                        </span>
+
+                        <span
+                            class="flex flex-row items-center justify-center gap-x-2 text-xl md:text-3xl dark:text-white w-1/2 whitespace-nowrap"
+                            [style.opacity.%]="rightSlider">
+                            <ng-icon class="text-logo" size="18" name="octCheckCircleFill"></ng-icon> With
+                            Actionforge
+                        </span>
+                    </div>
+
+                    <img-comparison-slider #imgComparisionSlider (slide)="onSlide($event)" hover="true" [value]="20"
+                        class="hidden md:block cid-image-handle rounded-xl shadow-xl">
+                        <div slot="first" class="w-full h-full hljs text-left text-sm drop-shadow-lg bg-red-500">
+
+                            <div class="flex flex-row items-center w-full h-12 bg-gray-200 dark:bg-gray-800 px-4 font-mono"
+                                role="group">
+                                .github / workflows / build.yml · 4042 lines
+                            </div>
+                            <pre>
+                        <code [languages]="['yaml']" [highlight]="code"></code>
+                    </pre>
+                        </div>
+                        <img slot="second" src="/assets/splash-large.jpg" class="w-full" alt="With Actionforge" />
+                        <svg slot="handle" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-8 -3 16 6">
+                            <path class="stroke-gray-500"
+                                d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2"
+                                stroke-width="1" class="fill-gray-800 dark:fill-gray-300"
+                                vector-effect="non-scaling-stroke"></path>
+                        </svg>
+                    </img-comparison-slider>
+                    <img src="/assets/splash-mobile.jpg" width="1024" height="642" alt="Action graph"
+                        class="md:hidden rounded-xl shadow-xl" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Node Feature -->
+        <section class="mt-64">
+            <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 lg:px-6">
+                <div class="mt-4 md:mt-0">
+                    <h2
+                        class="mb-4 text-4xl text-center md:text-left tracking-tight font-extrabold text-gray-900 dark:text-white">
+                        <span class="mr-1">🔍</span> All GitHub Action settings at <span
+                            class="cid-gradient from-orange-600 to-orange-400 ml-1">Arm's
+                            Reach</span>
+                    </h2>
+                    <p class="mb-6 text-gray-500 text-xl dark:text-gray-400">Actionforge
+                        finds and displays all GitHub Action ports, saving you hours of time. All options right at your
+                        fingertips.
+                    </p>
+                </div>
+                <img class="w-full p-4 md:hidden" src="/assets/node2.png" alt="dashboard image">
+                <img #ports class="w-full p-4 hidden md:block mx-auto" src="/assets/node3.png" alt="dashboard image">
+            </div>
+        </section>
+
+
+        <!-- GitHub Workflow Integration -->
+        <section class="mt-64">
+            <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 lg:px-6">
+                <img #workflow class="w-full p-4 dark:hidden" src="/assets/gh-workflow.png" alt="dashboard image">
+                <img class="w-5/6 p-4 hidden dark:block mx-auto" src="/assets/gh-workflow.png" alt="dashboard image">
+                <div class="mt-4 md:mt-0">
+                    <h2
+                        class="mb-4 text-4xl text-center md:text-left tracking-tight font-extrabold text-gray-900 dark:text-white">
+                        <span class="mr-1">🔐</span> All within GitHub's <span
+                            class="cid-gradient from-green-600 to-green-400">Trusted
+                            Walls</span>
+                    </h2>
+                    <p class="mb-6 text-gray-500 text-xl dark:text-gray-400">Actionforge seamlessly
+                        integrates into GitHub's ecosystem and infrastructure. Run all your Action Graphs directly on
+                        your own GitHub runners, free from third-party cloud services.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Node Feature -->
+        <section class="mt-64">
+            <div class="flex flex-col gap-y-8 py-8 px-4 mx-auto max-w-screen-2xl lg:px-8">
+                <h2 class="text-center text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    Actionforge in Action 🎬
+                </h2>
+                <img class="hidden md:block rounded-2xl shadow-xl" #ui slot="second" src="/assets/ui-large.jpg"
+                    width="2048" height="863" alt="UI Screenshot" />
+                <img class="block md:hidden rounded-2xl shadow-xl" slot="second" src="/assets/ui-mobile.jpg"
+                    width="1024" height="431" alt="UI Screenshot" />
+                <p class="mx-auto text-center font-normal text-gray-500 text-xl dark:text-gray-400 max-w-4xl">
+                    Actionforge offers a custom node system runtime and a visual interface for GitHub Actions. With a
+                    user-friendly
+                    drag-and-drop system,
+                    you can seamlessly design and implement your development workflows. Simplify automation, enhance
+                    productivity.
+                </p>
+            </div>
+        </section>
+
+        <!-- Github Marketplace -->
+        <section class="mt-64">
+            <div class="py-8 px-4 mx-auto max-w-screen-lg lg:px-6">
+                <h2 class="mb-16 text-center text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    <p>
+                        <span class="inline-block">Compatible with all&nbsp;</span>
+                        <span class="inline-block">Github Actions … ❤️</span>
+                    </p>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 lg:mt-12 cid-fadeout">
+
+                    <div *ngFor="let ghi of ghActionItems">
+
+                        <ng-container *ngTemplateOutlet="ghAction; context: ghi"></ng-container>
+
+                    </div>
+                </div>
+
+                <h2 class="mt-16 text-center text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    … and many more. 🚀
+                </h2>
+
+            </div>
+        </section>
+
+        <!-- Waitlist -->
+        <a name="join">
+            <section id="newsletter" class="mt-64">
+                <div class="flex flex-col my-32 mx-4 lg:mb-48">
+                    <div class="w-full mx-auto max-w-screen-sm text-center">
+                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Join
+                            Waitlist
+                        </h2>
+                        <form action="#" class="mx-auto max-w-screen-sm">
+                            <div class="flex items-center justify-center mb-3">
+                                <div class="relative mr-3 w-full">
+                                    <label for="member_email"
+                                        class="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email
+                                        address</label>
+                                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                            </path>
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                        </svg>
+                                    </div>
+
+                                    <input #emailInput [value]="joinEmail" [disabled]="joined" [readonly]="joined"
+                                        class="block py-3 px-5 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder="Enter your email" type="email" name="member[email]"
+                                        id="member_email" required="">
+                                </div>
+
+                                <!-- Button and success indicator for newsletter-->
+                                <ng-icon *ngIf="joined" name="octCheckCircleFill" size="24" class="text-logo"
+                                    matTooltip="You successfully joined"></ng-icon>
+                                <button *ngIf="!joined" type="submit"
+                                    (click)="onClickJoinWaitlist($event, emailInput.value)"
+                                    class="cid-button cid-blue-button">Join</button>
+                            </div>
+                            <div class="text-sm font-medium text-left text-gray-500 dark:text-gray-300">No spam.
+                                Promise.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </a>
+
+        <!-- FAQ -->
+        <section class="mt-64">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+                <h2 class="mb-8 text-center text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    Frequently
+                    asked
+                    questions</h2>
+                <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2">
+                    <div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                What exactly is Actionforge?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                Actionforge offers an intuitive visual node interface to create and maintain complex
+                                GitHub Action workflows.</p>
+                        </div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                How do I create an Action Graph?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                Using Actionforge, you can visually create your workflow via a VS Code Extension.
+                                Each node of your graph represents a GitHub Action. Together, they form
+                                what is called an 'Action Graph'. Once your graph is ready, you can commit it to your
+                                repository.
+                            </p>
+                        </div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                How do I execute an Action Graph as a GitHub Action workflow?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                To execute an action runner on your GitHub Runners, you just need a traditional GitHub
+                                Actions workflow.
+                                The workflow file contains a single step that uses <a
+                                    href="https://github.com/actionforge/action"
+                                    target="_blank">github.com/actionforge/action</a> and points to your Action Graph -
+                                that's it.
+                            </p>
+                            <p class="text-gray-500 dark:text-gray-400 mt-4">
+                                Here is a simple example to execute an Action Graph:
+                            </p>
+
+                            <pre>
+                            <code class="text-xs sm:text-md rounded-sm sm:rounded-md" [languages]="['yaml']" [highlight]="actionCode"></code>
+                        </pre>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Why is Actionforge not simply a UI wrapper for GitHub workflows?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                Traditional GitHub workflows follow a linear execution order from top to bottom,
+                                which
+                                can be restrictive. In contrast, action graphs enable more complex and
+                                versatile node setups with different flow nodes like if-conditions, for-loops, switches
+                                and more while still being more secure.
+                            </p>
+                        </div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Does Actionforge use cloud services?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                Actionforge does not depend on external cloud services. An action graph is executed
+                                directly on your designated GitHub runners.
+                            </p>
+                        </div>
+                        <div class="mb-10">
+                            <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                                <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                What is the pricing model for Actionforge?
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400">Actionforge is free for non-commercial
+                                public GitHub repositories. A pricing update for commercial and private repositories
+                                will follow. Licenses for commercial use will soon be available on the GitHub
+                                Marketplace.
+                                For further information <a [href]="'mailto:' + (es.e$ | async)" target="_blank">Get in
+                                    touch</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-64">
+            <app-footer></app-footer>
+        </section>
+
+    </div>
+
+    <ng-template #ghAction let-name="name" let-desc="desc" let-bglogo="bglogo" let-logo="logo" let-installs="installs"
+        let-stars="stars">
+
+        <div class="flex flex-row w-full gap-x-4">
+
+            <!-- Left Github Panel -->
+            <div class="flex justify-center w-auto">
+                <!-- Action Logo -->
+                <div class="flex justify-center items-center rounded-full w-16 h-16 m-2 shadow-xl" [ngClass]="bglogo">
+                    <div [innerHTML]="logo | safe:'html'"></div>
+                </div>
+
+            </div>
+
+            <!-- Right Github Panel -->
+            <div class="flex flex-col w-full gap-y-2">
+
+                <!-- Action Name -->
+                <span class="text-link font-semibold">
+                    {{name}}
+                </span>
+
+                <!-- Verified Badge -->
+                <div class="flex flex-row gap-y-2 flex-wrap items-center gap-x-2 text-sm">
+                    <ng-icon name="octVerified" class="text-link" size="14"></ng-icon>
+                    Creator verified
+                    <div *ngIf="installs" class="flex flex-row items-center gap-x-2">
+                        <ng-icon name="octDownload" class="text-white" size="14"></ng-icon> {{installs}}
+                    </div>
+                    <div *ngIf="stars" class="flex flex-row items-center gap-x-2">
+                        <ng-icon name="octStar" class="text-gray-400 dark:text-gray-300" size="14"></ng-icon> {{stars}}
+                    </div>
+                </div>
+
+                <!-- Verified Badge -->
+                <p class="gap-x-2 text-md">
+                    {{desc}}
+                </p>
+
+            </div>
+
+        </div>
+
+    </ng-template>

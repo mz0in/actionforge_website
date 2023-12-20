@@ -1,0 +1,28 @@
+.cid-gradient {
+    @apply bg-gradient-to-r;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.cid-bg {
+    @apply bg-white dark:bg-black bg-no-repeat bg-[url('/assets/light-bg.jpg')] dark:bg-[url('/assets/dark-bg.jpg')];
+}
+
+.cid-bg-gradient {
+    @apply bg-gradient-to-b from-transparent via-white to-white dark:via-black dark:to-black;
+}
+
+.cid-image-handle {
+    --default-handle-width: clamp(40px, 10vw, 200px);
+    --default-handle-color: gray;
+}
+
+.cid-fadeout {
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
+img-comparison-slider {
+    outline: unset; // remove outline as default set by tailwind
+}

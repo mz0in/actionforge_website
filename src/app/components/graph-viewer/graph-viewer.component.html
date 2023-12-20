@@ -1,0 +1,4 @@
+<div *ngIf="!error" class="bg-white dark:bg-black h-full w-full p-0 md:p-6">
+    <iframe [src]="getGraphUrl() | safe: 'resourceUrl'" frameborder="1" width="100%" height="100%"
+        class="w-full h-full rounded-none md:rounded-2xl shadow-lg" sandbox="allow-scripts allow-same-origin"></iframe>
+</div>
