@@ -31,7 +31,7 @@ export class GraphViewerComponent implements OnInit {
 
       if (isValid(owner, /^[a-zA-Z0-9][a-zA-Z0-9-_]+$/) &&
         isValid(repo, /^[a-zA-Z0-9][a-zA-Z0-9-_]+$/) &&
-        isValid(ref, /^[^\s./][a-zA-Z0-9-_/]+[^/]$/) &&
+        isValid(ref, /^[^\s./][a-zA-Z0-9-_./]+[^/]$/) &&
         isValid(filename, /^[a-zA-Z0-9-_./]+$/)) {
         this.owner = owner;
         this.repo = repo;
